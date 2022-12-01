@@ -1,23 +1,34 @@
 import "./App.css";
+import User from "./User";
 
 function App() {
+  // TERNARY OPERATORS
+  // const age = 15;
+  // const isGreen = false;
+
+  // return (
+  //   <div className="App">
+  //     {age >= 18 ? <h1>OVER AGE</h1> : <h1>UNDER AGE</h1>}
+  //     <h1 style={{ color: isGreen ? "green" : "red" }}>THIS HAS COLOR</h1>
+
+  //     {isGreen && <button>BUTTON</button>}
+  //   </div>
+  // );
+
+  // LIST (LIST OF OBJECTS)
+  const users = [
+    { name: "Tessy", age: 12 },
+    { name: "Mark", age: 16 },
+    { name: "Ben", age: 19 },
+  ];
+
   return (
     <div className="App">
-      <User name="Tessy" age={19} email="tessy@email.com" />
-      <User name="Mark" age={20} email="mark@email.com" />
-      <User name="Jake" age={21} email="jake@email.com" />
+      {users.map((user, key) => {
+        return <User name={user.name} age={user.age} />;
+      })}
     </div>
   );
 }
-
-const User = (props) => {
-  return (
-    <div>
-      <h1>{props.name}</h1>
-      <h1>{props.age}</h1>
-      <h1>{props.email}</h1>
-    </div>
-  );
-};
 
 export default App;
